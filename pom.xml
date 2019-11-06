@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>kafka_test</groupId>
+  <artifactId>kafka_test</artifactId>
+  <version>1111</version>
+  <name>kafka_test</name>
+  <description>kafka_test</description>
+  
+  
+  <build>
+  <plugins>
+    <plugin>
+      <!-- Build an executable JAR -->
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.1.0</version>
+      <configuration>
+        <archive>
+          <manifest>
+            <addClasspath>true</addClasspath>
+            <classpathPrefix>lib/</classpathPrefix>
+            <mainClass>com.daemon.kafka.producer.KafkaDaemonProducer</mainClass>
+          </manifest>
+        </archive>
+      </configuration>
+    </plugin>
+    
+    <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+            <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+        </configuration>
+    </plugin>
+    
+    
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    
+  </plugins>
+</build>
+
+
+  <dependencies>
+  	        <dependency>
+	    <groupId>org.apache.kafka</groupId>
+	    <artifactId>kafka-clients</artifactId>
+	    <version>2.3.1</version>
+	  </dependency>
+	  
+	  <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
+		<dependency>
+		    <groupId>org.apache.kafka</groupId>
+		    <artifactId>kafka_2.12</artifactId>
+		    <version>2.3.1</version>
+		</dependency>
+			  
+
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.kafka/connect-api -->
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>connect-api</artifactId>
+    <version>2.3.1</version>
+</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.kafka/connect-runtime -->
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>connect-runtime</artifactId>
+    <version>2.3.1</version>
+</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.kafka/connect-json -->
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>connect-json</artifactId>
+    <version>2.3.1</version>
+</dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk-s3</artifactId>
+    <version>1.11.665</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk</artifactId>
+    <version>1.11.665</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.6</version>
+</dependency>
+
+
+  </dependencies>
+</project>
